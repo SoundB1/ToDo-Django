@@ -1,17 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from .forms import ToDoForm
-from .models import TaskModel
+from .models import Task
 
 class HomeView(generic.ListView):
     template_name = "index.html"
-    model = TaskModel
+    model = Task
 
 class TaskDeleteView(generic.View):
     
     def get(self, request, *args, **kwargs):
         
-        tasks = get_object_or_404(TaskModel, id=kwargs['pk'])
+        tasks = get_object_or_404(Task, id=kwargs['pk'])
         tasks.delete()
         return redirect('home')
 
@@ -19,7 +19,7 @@ class TaskDeleteView(generic.View):
 class TaskCompleteView(generic.View):    
     def get(self, request, *args, **kwargs):
         
-        tasks = get_object_or_404(TaskModel, id=kwargs['pk'])
+        tasks = get_object_or_404(Task, id=kwargs['pk'])
         tasks.complete = True
         tasks.save()
         return redirect('home')
@@ -30,7 +30,7 @@ class TaskEditView(generic.View):
 
     def get(self, request, *args, **kwargs):
         
-        tasks = get_object_or_404(TaskModel, id=kwargs['pk'])
+        tasks = get_object_or_404(Task, id=kwargs['pk'])
         if tasks.complete:
             return redirect('home')
         else:
@@ -40,7 +40,7 @@ class TaskEditView(generic.View):
         
         form = self.form_class(request.POST)
         if form.is_valid():
-            tasks = get_object_or_404(TaskModel, id=kwargs['pk'])
+            tasks = get_object_or_404(Task, id=kwargs['pk'])
             
             infForm = form.cleaned_data
             tasks.task_name = infForm['task_name']
@@ -60,7 +60,7 @@ class ToDoView(generic.View):
         if form.is_valid():
             infForm = form.cleaned_data
 
-            ToDoData__ = TaskModel(
+            ToDoData__ = Task(
                 task_name=infForm['task_name'],
                 description=infForm['description'])
             ToDoData__.save()
