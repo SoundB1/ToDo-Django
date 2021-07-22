@@ -31,7 +31,10 @@ class TaskEditView(generic.View):
     def get(self, request, *args, **kwargs):
         
         tasks = get_object_or_404(TaskModel, id=kwargs['pk'])
-        return render(request, self.template_name, {'success': False, 'tasks': tasks })
+        if tasks.complete:
+            return redirect('home')
+        else:
+            return render(request, self.template_name, {'tasks': tasks })
 
     def post(self, request, *args, **kwargs):
         
