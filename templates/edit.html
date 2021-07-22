@@ -7,7 +7,7 @@
     <form method="POST">{% csrf_token %}
         <div class="mb-3">
             <label class="form-label">New Task name</label>
-            <input type="text" class="form-control" name="task_name" placeholder="{{ tasks.task_name|upper }}" required>
+            <input type="text" class="form-control" name="name" placeholder="{{ tasks.name|upper }}" required>
         </div>
         <div class="mb-3">
             <label class="form-label">New Task Description</label>

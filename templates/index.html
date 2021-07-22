@@ -22,7 +22,7 @@
         {% for tasks in object_list %}
         <tr>
           <td scope="row">{{ tasks.id }} </td>
-          <td {% if tasks.complete %} style="text-decoration: line-through;" {% endif %}>{{ tasks.task_name|upper }}</td>
+          <td {% if tasks.complete %} style="text-decoration: line-through;" {% endif %}>{{ tasks.name|upper }}</td>
           <td {% if tasks.complete %} style="text-decoration: line-through;" {% endif %}>{{ tasks.description|upper }}</td>
               
           <td>

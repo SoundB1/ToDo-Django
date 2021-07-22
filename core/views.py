@@ -43,7 +43,7 @@ class TaskEditView(generic.View):
             tasks = get_object_or_404(Task, id=kwargs['pk'])
             
             infForm = form.cleaned_data
-            tasks.task_name = infForm['task_name']
+            tasks.name = infForm['name']
             tasks.description = infForm['description']
             tasks.save()
             return redirect('home')        
@@ -61,7 +61,7 @@ class ToDoView(generic.View):
             infForm = form.cleaned_data
 
             ToDoData__ = Task(
-                task_name=infForm['task_name'],
+                name=infForm['name'],
                 description=infForm['description'])
             ToDoData__.save()
 
