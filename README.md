@@ -5,6 +5,7 @@
 ## Functions
  - **Create**
  - **Delete**
+ - **Edit**
  - **Finish**
 
 ## Requirements
