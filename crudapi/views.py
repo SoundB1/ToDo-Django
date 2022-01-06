@@ -1,8 +1,8 @@
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
-from create.models import Task
-from create.serializers import TaskSerializer
+from crudapi.models import Task
+from crudapi.serializers import TaskSerializer
 
 
 @csrf_exempt
