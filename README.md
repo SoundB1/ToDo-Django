@@ -15,8 +15,8 @@
 ## How to start server
  - **First execute "makemigration and migrate".**
  - **Then run the command "py manage.py runserver".**
- -- **Optional: If the migration fails, try to migrate to the "core" app only.**
- 
+ - **Optional: If the migration fails, try to migrate to the "core" app only.**
+
 ## Versions
 > 1.0 **project publication**
 
